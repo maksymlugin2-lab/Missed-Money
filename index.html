@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MissedMoney — бесплатный расчёт упущенной выручки для малого бизнеса</title>
+<meta name="description" content="Бесплатный калькулятор упущенной выручки для салонов, кафе, магазинов, клиник и частных специалистов: три сценария, приоритеты и план на 4 недели. Без регистрации.">
+<meta name="theme-color" content="#14213d">
+<meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:site_name" content="MissedMoney"><meta property="og:title" content="MissedMoney — калькулятор упущенной выручки"><meta property="og:description" content="Ответьте на 4 вопроса и получите сценарную оценку, приоритеты и план на 4 недели. Бесплатно, без регистрации.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='%23f2b600'/%3E%3Cpath d='M3 14l5-6 3 3 6-8' fill='none' stroke='%2314213d' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f4ee;--sh:#fff;--tx:#14213d;--mu:#566178;--ln:#d8d4c8;--bar:#14213d;--ac:#f2b600;--fin:#7a5800;--ng:#a4262c;--f:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--s:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--m:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1729;--sh:#15233d;--tx:#e9edf5;--mu:#a3afc6;--ln:#2b3b5c;--bar:#8fa8d8;--fin:#f2c230;--ng:#ff9a9a}}
+:root[data-theme="dark"]{--bg:#0e1729;--sh:#15233d;--tx:#e9edf5;--mu:#a3afc6;--ln:#2b3b5c;--bar:#8fa8d8;--fin:#f2c230;--ng:#ff9a9a}
+html{scroll-padding-top:calc(92px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.55 var(--f)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#14213d;z-index:10}
+.skip{position:absolute;left:8px;top:-60px;z-index:30;background:var(--ac);color:#1b1400;padding:8px 12px;font-weight:600}.skip:focus{top:8px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:#14213d;border-bottom:3px solid var(--ac)}
+.hd{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;column-gap:16px;padding:0 16px}
+.lg{display:flex;align-items:center;gap:8px;background:none;border:0;color:#fff;font:700 19px var(--s);cursor:pointer;white-space:nowrap;padding:10px 0}.lg b{color:var(--ac);font-weight:700}
+nav{display:flex;gap:2px;margin-left:auto;overflow-x:auto;max-width:100%}
+nav button{background:none;border:0;border-bottom:2px solid transparent;color:#c6d0e6;font:500 14px var(--f);padding:12px 9px;cursor:pointer;white-space:nowrap}
+nav button:hover{color:#fff;border-color:var(--ac)}
+@media(max-width:640px){nav{order:3;width:100%;margin:0 -9px;border-top:1px solid #2b3b5c}nav button{padding:12px 8px;font-size:13.5px}}
+main{max-width:1040px;margin:0 auto;padding:24px 16px 32px}
+h1{font:700 clamp(26px,5vw,38px)/1.15 var(--s);letter-spacing:-.01em;margin:0 0 14px;max-width:24ch}
+h2{font:700 22px/1.25 var(--s);margin:34px 0 12px;padding-top:16px;border-top:1px solid var(--ln)}
+h3{font:600 16px/1.3 var(--f);margin:0 0 6px}
+p{margin:6px 0}.mu,.ht{color:var(--mu);font-size:14px}.ht{margin:4px 0 12px}
+.lead{font-size:18px;max-width:58ch}
+ul{margin:6px 0;padding-left:20px}li{margin:3px 0}
+.row{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}.row>*{flex:1 1 170px}
+.hero .row>*{flex:0 0 auto}@media(max-width:520px){.hero .row>*{flex:1 1 100%}}
+.bt{background:var(--ac);color:#1b1400;border:1px solid #b98a00;border-radius:3px;padding:12px 16px;font:600 15px var(--f);cursor:pointer}
+.bt.s{background:transparent;color:var(--tx);border-color:var(--tx)}
+.lk{background:none;border:0;padding:0;color:var(--tx);font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.sh{background:var(--sh);border:1px solid var(--ln);border-radius:3px;padding:14px 16px;margin:10px 0}
+.note{border-left:3px solid var(--ac);background:var(--sh);padding:10px 14px;margin:18px 0;font-size:14px}
+.er{background:#fde8e8;color:#8a1111;border-radius:3px;padding:8px 12px;margin:10px 0;font-size:14px}.er:empty{display:none}.er p{margin:4px 0}
+.tg{display:inline-block;font:500 11px/1.5 var(--f);border:1px solid var(--ln);color:var(--mu);padding:0 6px;border-radius:2px;white-space:nowrap}.tg.f{border-color:var(--tx);color:var(--tx)}.tg.a{border-style:dashed;border-color:var(--fin);color:var(--fin)}
+label{display:block;margin:14px 0 4px;font-weight:600;font-size:14px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--mu);border-radius:3px;background:var(--sh);color:var(--tx);font:500 16px var(--m)}
+select,textarea{font-family:var(--f)}input:invalid{border-color:var(--ng)}
+.hero{display:grid;gap:24px;align-items:center}
+@media(min-width:900px){.hero{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px}}
+.pvw{background:var(--sh);border:1px solid var(--ln);padding:14px 18px}.pvw:empty{display:none}
+.rs{padding:10px 14px;border:1px solid var(--ln);background:var(--sh);font-size:14px}
+.ls{display:grid;gap:8px}.qf{max-width:600px}
+.qg{display:grid;gap:20px}
+@media(min-width:900px){.qg{grid-template-columns:minmax(0,600px) minmax(0,1fr);gap:40px;align-items:start}.qg aside{position:sticky;top:110px}}
+.op{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--sh);color:var(--tx);border:1px solid var(--ln);border-radius:3px;padding:12px 14px;font:inherit;cursor:pointer}
+.op i{flex:none;width:18px;height:18px;margin-top:2px;border:1.5px solid var(--mu);border-radius:2px}
+.op small{display:block;color:var(--mu);font-size:13px;margin-top:2px}
+.op[aria-pressed=true]{border-color:var(--tx);box-shadow:inset 3px 0 0 var(--ac)}
+.op[aria-pressed=true] i{background:var(--tx);box-shadow:inset 0 0 0 3px var(--sh)}
+.stp{display:flex;gap:4px;list-style:none;padding:0;margin:0 0 20px;border-bottom:1px solid var(--ln)}
+.stp button{display:flex;gap:6px;align-items:center;background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-1px;padding:10px 8px;color:var(--mu);font:500 14px var(--f);cursor:pointer}
+.stp button[disabled]{opacity:.55;cursor:default}.stp button[aria-current]{color:var(--tx);border-color:var(--ac)}
+.stp b{font-family:var(--m);font-weight:600}.stp span{display:none}.stp button[aria-current] span{display:inline}
+@media(min-width:620px){.stp span{display:inline}}
+.acc{padding:14px 16px;border:1px solid var(--ln);border-radius:3px;font-size:14px;background:var(--sh)}
+.mt{display:flex;gap:4px;margin:8px 0}.mt i{flex:1;height:6px;background:var(--ln)}.mt i.on{background:var(--tx)}
+.lv{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:10px 0}.lv dt{color:var(--mu)}.lv dd{margin:0;text-align:right}
+.tw{overflow-x:auto}.tb{width:100%;border-collapse:collapse;font-size:14px}
+.tb td,.tb th{padding:8px 6px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}.tb th{color:var(--mu);font-weight:500}
+.n{font-family:var(--m);font-variant-numeric:tabular-nums;white-space:nowrap}.tb .n,.tr .n{text-align:right}
+.rl{display:grid;gap:0 36px}.rl>*{min-width:0}
+.toc{display:none;flex-direction:column;gap:2px;border-left:1px solid var(--ln);padding-left:14px;font-size:13px}.toc a{color:var(--mu);text-decoration:none;padding:3px 0}.toc a:hover{color:var(--tx);text-decoration:underline}
+@media(min-width:1000px){.rl{grid-template-columns:minmax(0,1fr) 170px}.toc{display:flex;position:sticky;top:110px;align-self:start}}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 6px;font-size:14px;color:var(--mu)}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--ln);border:1px solid var(--ln);margin:10px 0}
+.kp>div{background:var(--sh);padding:12px 14px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}.kp b{font-size:19px}.fin{color:var(--fin)}
+.br{display:grid;grid-template-columns:10rem minmax(0,1fr) 7.4rem;gap:10px;align-items:center;margin:6px 0;font-size:14px}.br .n{text-align:right}
+@media(max-width:480px){.br{grid-template-columns:minmax(0,1fr) auto}.br>span{grid-area:1/1}.br>b{grid-area:1/2}.br>.tk{grid-area:2/1/3/3}}
+.tk{height:12px;background:color-mix(in srgb,var(--ln) 55%,transparent)}
+.tk i{display:block;height:100%;background:var(--bar);transform-origin:left;-webkit-print-color-adjust:exact;print-color-adjust:exact}.tk i.ac{background:var(--ac)}.tk i.ng{background:var(--ng)}
+.first .tk i{animation:gr .6s ease-out}@keyframes gr{from{transform:scaleX(0)}}
+.scr{padding:10px 0;border-top:1px solid var(--ln)}.scr:first-child{border:0;padding-top:0}.sp{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.pz{padding:12px 0;border-top:1px solid var(--ln)}.pz:first-child{border:0;padding-top:0}.pz .tk{margin:6px 0}
+.tr{display:grid;grid-template-columns:minmax(0,1fr) 76px minmax(78px,100px);gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--ln);font-size:14px}
+.tr label{margin:0;font-weight:500}.tr input{padding:7px 8px;font-size:15px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+details{background:var(--sh);border:1px solid var(--ln);border-radius:3px;padding:10px 14px;margin:8px 0}summary{font-weight:600;cursor:pointer}
+.dz{background:var(--sh);border:1px solid var(--ln);border-radius:3px;padding:10px 14px;margin:8px 0}.wk{border-top:1px solid var(--ln);padding:8px 0}.wk:first-child{border:0}
+.df{display:grid;grid-template-columns:minmax(0,11rem) 1fr;gap:6px 16px}.df dt{font-weight:600}.df dd{margin:0;color:var(--mu)}
+@media(max-width:560px){.df{grid-template-columns:1fr}.df dd{margin-bottom:8px}}
+.mono{font:500 14px/1.8 var(--m);overflow-wrap:anywhere}.ls2{line-height:2.1}.ls2 .lk{margin-right:16px;white-space:nowrap}
+footer{text-align:center;padding:0 16px 28px;max-width:1040px;margin:0 auto}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:#14213d;color:#fff;border-left:3px solid var(--ac);padding:10px 16px;border-radius:3px;z-index:20;font-size:14px;max-width:92%}
+[hidden]{display:none!important}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--tx);outline-offset:2px;box-shadow:0 0 0 4px var(--ac)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+#pv{display:none}
+@media print{:root:root:root{--bg:#fff;--sh:#fff;--tx:#000;--mu:#444;--ln:#bbb;--bar:#14213d;--fin:#5a4000}header,footer,.row,.skip,#toast,body::before{display:none!important}body.pp>*{display:none!important}body.pp>#pv{display:block!important;font-size:12.5px}#pv .dz,#pv .wk,#pv .scr,#pv .pz{break-inside:avoid}#pv h2{break-after:avoid}}
+</style></head><body>
+<a class="skip" href="#main">К содержимому</a>
+<header><div class="hd"><button type="button" class="lg" onclick="go('home')" aria-label="MissedMoney — на главную"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" fill="#f2b600"/><path d="M3 14l5-6 3 3 6-8" fill="none" stroke="#14213d" stroke-width="2"/></svg><span>Missed<b>Money</b></span></button>
+<nav aria-label="Разделы сайта"><button type="button" onclick="goTo('metod')">Как считаем</button><button type="button" onclick="demo()">Пример отчёта</button><button type="button" onclick="goTo('faq')">Вопросы</button><button type="button" onclick="goTo('fb')">Связь</button></nav></div></header>
+<main id="main">
+<section id="v-home">
+<div class="hero"><div>
+<h1>Сколько денег теряет твой бизнес каждый месяц?</h1>
+<p class="lead">Ответьте на 4 коротких вопроса о своём бизнесе. Вы получите сценарную оценку упущенной выручки, приоритеты и план на 4 недели. Бесплатно, без регистрации и без ограничений на число расчётов.</p>
+<div class="row"><button type="button" class="bt" onclick="start()">Найти упущенную выручку</button><button type="button" class="bt s" onclick="demo()">Посмотреть пример отчёта</button></div>
+<p class="rs" id="rs" hidden></p></div>
+<div class="pvw" id="pvw" role="group" aria-label="Пример результата"></div></div>
+<div class="note">Результат — оценка по вашим цифрам и допущениям модели, а не измеренные потери и не гарантия дохода. Формулы видны, допущения можно менять.</div>
+<h2>Выберите тип бизнеса</h2><p class="ls2"><button type="button" class="lk" onclick="start('salon')">Салон красоты</button> <button type="button" class="lk" onclick="start('cafe')">Кафе</button> <button type="button" class="lk" onclick="start('shop')">Интернет-магазин</button> <button type="button" class="lk" onclick="start('pro')">Частный специалист</button> <button type="button" class="lk" onclick="start('fit')">Фитнес-студия</button> <button type="button" class="lk" onclick="start('auto')">Автосервис</button> <button type="button" class="lk" onclick="start('med')">Клиника или стоматология</button> <button type="button" class="lk" onclick="start('edu')">Школа, курсы, репетитор</button> <button type="button" class="lk" onclick="start('store')">Офлайн-магазин</button> <button type="button" class="lk" onclick="start('clean')">Клининг и бытовые услуги</button> <button type="button" class="lk" onclick="start('other')">Другой бизнес</button></p>
+<h2>Что вы получите</h2>
+<dl class="df"><dt>Резюме</dt><dd>Выручка, прибыль и главные гипотезы простым языком.</dd><dt>Три сценария</dt><dd>Консервативный, базовый и оптимистичный: дополнительная выручка, валовая прибыль и прибыль после расходов.</dd><dt>Приоритеты</dt><dd>Зоны роста по эффекту, затратам, сложности и сроку проверки.</dd><dt>План и проверка</dt><dd>План на 4 недели и список данных, которые нужно проверить.</dd></dl>
+<section id="metod"><h2>Как мы считаем</h2>
+<p>Сервис оценивает, сколько выручки бизнес мог бы возвращать себе в месяц, если улучшит выбранные зоны. Это сценарная гипотеза. Числа в отчёте бывают трёх видов: <span class="tg f">ввод</span> — вы указали сами; <span class="tg">расчёт</span> — посчитано из вашего ввода; <span class="tg a">допущение</span> — условное значение модели, которое можно изменить.</p>
+<h3>Формулы</h3>
+<p class="mono">выручка = клиенты × средний чек<br>пул = выручка × (1 − (1 − д1) × (1 − д2) × …)<br>доп. выручка = пул × % возврата<br>валовая прибыль = доп. выручка × маржа<br>прибыль после расходов = валовая прибыль − расходы на внедрение</p>
+<p class="mu">д1, д2 — доли выручки, которую может терять каждая выбранная зона. Произведение не даёт посчитать одну потерю дважды, если зон несколько. Оно считает зоны независимыми, поэтому лишь приближает реальность. Если вы указали расходы на клиента и постоянные расходы, отчёт дополнительно показывает валовую и операционную прибыль бизнеса по вашим данным.</p>
+<h3>Пример расчёта</h3>
+<p>100 клиентов × 1 000 = выручка 100 000. Две зоны с долями 4% и 6%: пул = 100 000 × (1 − 0,96 × 0,94) = 9 760 (простая сумма была бы 10 000). При возврате 30% дополнительная выручка — 2 928. При марже 40% валовая прибыль — 1 171,2. При расходах на внедрение 500 прибыль после расходов — 671,2. Цифры вымышленные.</p>
+<h3>Условные доли проблем</h3>
+<p class="mu">Стартовые значения ниже — допущения автора сервиса. Это не результат исследований и не отраслевая статистика. Замените их своими данными в отчёте.</p>
+<div class="tw"><table class="tb"><tr><th>Зона<th class="n">Условная доля выручки</tr><tr><td>Клиенты не возвращаются<td class="n">4%</tr><tr><td>Неявки и поздние отмены<td class="n">3%</tr><tr><td>Низкий средний чек<td class="n">5%</tr><tr><td>Мало новых клиентов<td class="n">6%</tr><tr><td>Простои и пустые часы<td class="n">4%</tr><tr><td>Медленный ответ на заявки<td class="n">3%</tr><tr><td>Слишком частые скидки<td class="n">2%</tr></table></div>
+<h3>Ограничения</h3>
+<ul><li>Доли проблем и процент возврата — гипотезы, а не измеренные величины.</li><li>Не учтены сезонность, ёмкость рынка, загрузка мощностей и налоги.</li><li>Реклама, скидки и новые клиенты увеличивают расходы: укажите их в допущениях.</li><li>Любую идею проверьте на небольшом тесте 2–4 недели и сравните с реальными цифрами.</li></ul></section>
+<section id="faq"><h2>Вопросы и ответы</h2>
+<details><summary>Это гарантия заработка?</summary><p>Нет. Отчёт — сценарная оценка по вашим цифрам и допущениям модели. Реальный эффект зависит от бизнеса, рынка и ваших действий.</p></details>
+<details><summary>Почему «упущенная выручка», а не «потерянная прибыль»?</summary><p>Модель оценивает, сколько выручки можно вернуть. Прибыль считается отдельно: дополнительная выручка × маржа − расходы на внедрение.</p></details>
+<details><summary>Откуда берутся цифры?</summary><p>Выручка и расходы — из ваших ответов. Доли проблем, процент возврата и (если вы не указали расходы на клиента) маржа — допущения модели, а не отраслевая статистика. В отчёте они помечены и меняются.</p></details>
+<details><summary>Что значат три сценария?</summary><p>Это разные доли «пула», который удастся вернуть: консервативный, базовый и оптимистичный. Значения всегда идут по возрастанию.</p></details>
+<details><summary>Что, если я не знаю расходов?</summary><p>Оставьте поля пустыми. Тогда маржа возьмётся из допущения, а операционная прибыль не будет рассчитана; точность оценки ниже.</p></details>
+<details><summary>Это бесплатно? Нужна ли регистрация?</summary><p>Да, бесплатно: без оплаты, подписок, регистрации и ограничений на число расчётов.</p></details>
+<details><summary>Что сохраняется в браузере?</summary><p>Только последний расчёт — на вашем устройстве, не на сервере. Удалить его можно кнопкой в отчёте или на главной. Сайт не загружает внешние шрифты, скрипты и аналитику.</p></details></section>
+<section id="fb"><h2>Обратная связь</h2><div class="sh qf"><p class="mu">Отправка сообщений не подключена: ничего не уходит на сервер. Скопируйте текст и отправьте его сами.</p>
+<label for="fn">Имя</label><input id="fn" autocomplete="name"><label for="fc">Как с вами связаться</label><input id="fc"><label for="fx2">Сообщение</label><textarea id="fx2" rows="4"></textarea>
+<div class="row"><button type="button" class="bt" onclick="fbc()">Скопировать сообщение</button></div></div></section>
+</section>
+<section id="v-quiz" hidden><div id="q"></div></section>
+<section id="v-rep" hidden><div id="r"></div></section>
+</main>
+<footer class="mu">MissedMoney — оценки приблизительные и не являются гарантией дохода или финансовой консультацией. Расчёты выполняются в вашем браузере; введённые данные никуда не отправляются.</footer>
+<div id="toast" role="status" hidden></div><div id="pv"></div>
+<script>
+const $=s=>document.querySelector(s),fm=n=>{n=+n;if(!isFinite(n))return"—";const r=Math.abs(n)>=100?Math.round(n):Math.round(n*100)/100;return(r===0?0:r).toLocaleString("ru-RU",{maximumFractionDigits:2})},pc=x=>fm(Math.round(x)),V=["home","quiz","rep"],SN=["Консервативный","Базовый","Оптимистичный"],STEPS=["Бизнес","Цифры","Проблемы","Каналы"],CUR=["₽","₸","₴","Br","$","€"],KEY="mm_last";
+const L=[
+{k:"ret",w:"Если часть клиентов не возвращается, вам приходится снова тратить силы на привлечение тех же людей.",ck:"Посчитайте, какая доля клиентов за последние 3 месяца пришла повторно.",kp:"Доля повторных клиентов за месяц и число возвращений после сообщения.",q:"Затраты: низкие · сложность: низкая · проверка: 3–4 недели",t:"Клиенты не возвращаются",s:4,tip:"Через 3–5 дней после визита отправьте благодарность и повод вернуться.",x:"Ведите список клиентов с датой последнего визита. Раз в неделю пишите тем, кто не приходил дольше обычного.",m:"Здравствуйте, [имя]! Давно не виделись. На этой неделе есть время — записать вас?"},
+{k:"noshow",w:"Пустое окно в расписании — это выручка, которую уже нельзя вернуть.",ck:"Посчитайте за месяц, сколько записей отменено в последний момент или не состоялось.",kp:"Доля неявок и отмен менее чем за сутки до визита.",q:"Затраты: низкие · сложность: низкая · проверка: 2 недели",t:"Неявки и поздние отмены",s:3,tip:"Напоминайте о записи за сутки и за 2 часа.",x:"Введите предоплату для длинных услуг и лист ожидания, чтобы закрывать освободившиеся окна.",m:"Напоминаем: завтра в [время] ждём вас. Подтвердите ответом «+». Если не получится — предложим другое время."},
+{k:"chk",w:"Клиент, который уже решил купить, может принять дополнение — это стоит проверить на своих данных.",ck:"Посмотрите последние 30–50 чеков: как часто клиенты берут больше одной позиции.",kp:"Средний чек и доля заказов с дополнением.",q:"Затраты: низкие · сложность: средняя · проверка: 2–4 недели",t:"Низкий средний чек",s:5,tip:"Предлагайте дополнение к покупке: «обычно к этому берут…».",x:"Соберите 2–3 набора (базовый, оптимальный, расширенный) и показывайте их в этом порядке.",m:"К вашему заказу многие добавляют [товар или услугу]. Добавить за [цена]?"},
+{k:"new",w:"Без постоянного потока обращений бизнес зависит от нескольких источников клиентов и от сезонности.",ck:"Выпишите, откуда пришли клиенты за последние 2 месяца и сколько обращений дал каждый источник.",kp:"Число новых обращений в неделю по каждому источнику.",q:"Затраты: низкие–средние · сложность: средняя · проверка: 4+ недели",t:"Мало новых клиентов",s:6,tip:"Просите отзыв и рекомендацию сразу после хорошего результата.",x:"Заполните карточку на картах (Google, Яндекс, 2ГИС), добавьте фото работ и отвечайте на отзывы.",m:"Спасибо, что выбрали нас! Если всё понравилось, оставьте отзыв: [ссылка]. Для нас это очень важно."},
+{k:"idle",w:"Простаивающие часы и места не приносят выручки, а расходы на аренду и персонал остаются.",ck:"Отметьте часы и дни с самой низкой загрузкой за последний месяц.",kp:"Загрузка в слабые часы до и после предложения.",q:"Затраты: средние (скидки) · сложность: средняя · проверка: 2 недели",t:"Простои и пустые часы",s:4,tip:"Найдите самые слабые часы и сделайте для них отдельное предложение.",x:"Две недели тестируйте скидку только на пустые слоты и сравните загрузку до и после.",m:"Есть свободное время на [день и час]. Для постоянных клиентов — [условие]. Занять?"},
+{k:"slow",w:"Клиент, который не получил быстрый ответ, может обратиться к тому, кто ответил раньше.",ck:"Проверьте время ответа на последние 20 обращений и сколько обращений осталось без ответа.",kp:"Время первого ответа и доля обращений, перешедших в запись или заказ.",q:"Затраты: низкие · сложность: низкая · проверка: 1–2 недели",t:"Медленный ответ на заявки",s:3,tip:"Отвечайте на новое обращение в течение 15 минут в рабочее время.",x:"Настройте автоответ и шаблоны на 5 частых вопросов; назначьте, кто отвечает в какие часы.",m:"Здравствуйте! Спасибо за обращение. Уточните, пожалуйста, [вопрос] — и я сразу подготовлю предложение."},
+{k:"disc",w:"Частые скидки могут снижать чек и приучать клиентов ждать акций.",ck:"Посчитайте, какая доля продаж за последние 2 месяца прошла со скидкой и как изменился чек.",kp:"Доля продаж со скидкой и средняя маржа на заказ.",q:"Затраты: низкие · сложность: средняя · проверка: 4 недели",t:"Слишком частые скидки",s:2,tip:"Замените часть скидок подарком, который обходится вам дешевле.",x:"Определите, кто получает скидки, и привяжите их к условиям: объём, время, повторная покупка.",m:"При заказе от [сумма] — [бонус] в подарок."}];
+const CH=[["soc","Соцсети"],["ref","Рекомендации знакомых"],["map","Карты и отзывы"],["msg","Рассылки и мессенджеры"],["ads","Платная реклама"],["none","Пока нет системы"]];
+const CI={soc:"Соцсети: 2–3 коротких поста или видео в неделю с примерами ваших работ.",ref:"Рекомендации: бонус за приведённого друга — и тому, кто привёл, и тому, кто пришёл.",map:"Карты и отзывы: заполните карточку компании, добавьте фото и просите отзывы после покупки.",msg:"Рассылки: с согласия клиентов собирайте контакты и раз в 2 недели присылайте одно полезное предложение."};
+const TY={
+salon:{tk:["chk", "ret", "new"],pl:["ret", "noshow", "chk", "new", "idle", "slow"],n:"Салон красоты",c:120,a:3500,d:["ret","noshow","chk","new"],t:["Продавайте курс процедур или абонемент вместо разовых визитов.","Записывайте на следующий визит до ухода клиента.","Показывайте работы «до и после» на картах и в соцсетях — с разрешения клиента."]},
+cafe:{tk:["chk", "new", "ret"],pl:["ret", "chk", "new", "idle", "slow", "disc"],n:"Кафе",c:1800,a:700,d:["ret","chk","idle","disc"],t:["Соберите комбо: основное блюдо, напиток и десерт по понятной цене.","Предложите предзаказ или бизнес-ланч ближайшим офисам.","Заведите простую карту лояльности: каждый N-й напиток в подарок."]},
+shop:{tk:["ret", "chk", "chk"],pl:["ret", "chk", "new", "slow", "disc"],n:"Интернет-магазин",c:300,a:2800,d:["ret","chk","new","slow"],t:["Напоминайте о брошенной корзине в мессенджере или по почте.","Поставьте порог бесплатной доставки чуть выше среднего чека.","Добавьте в карточку товара блок «С этим покупают»."]},
+pro:{tk:["chk", "slow", "ret"],pl:["ret", "noshow", "chk", "new", "idle", "slow"],n:"Частный специалист",c:30,a:4000,d:["noshow","new","slow","ret"],t:["Продавайте пакет из нескольких сессий вместо разовых встреч.","Подготовьте шаблон ответа на вопрос «сколько стоит» с уточнением задачи.","Раз в месяц пишите прошлым клиентам и предлагайте повторную встречу."]},
+fit:{tk:["ret", "new", "idle"],pl:["ret", "noshow", "new", "idle", "chk", "slow"],n:"Фитнес-студия",c:150,a:4000,d:["ret","noshow","idle","new"],t:["Предложите продление абонемента за 5–7 дней до его окончания.","После пробного занятия сразу предлагайте записаться на регулярные.","Сделайте отдельное предложение на слабые часы расписания."]},
+auto:{tk:["ret", "chk", "slow"],pl:["ret", "chk", "new", "slow", "idle", "disc"],n:"Автосервис",c:90,a:8000,d:["ret","chk","slow","new"],t:["Напоминайте о плановом обслуживании по пробегу или по сроку.","Показывайте рекомендованные работы списком: срочно или можно отложить.","Отвечайте на заявки в мессенджерах в течение 15 минут и называйте ближайшее окно записи."]},
+med:{tk:["noshow", "ret", "chk"],pl:["ret", "noshow", "chk", "new", "idle", "slow"],n:"Клиника или стоматология",c:160,a:6000,d:["noshow","ret","slow","chk"],t:["Напоминайте о приёме за сутки и просите подтвердить запись.","Записывайте на профилактический осмотр сразу после лечения.","Объясняйте план лечения по этапам, чтобы следующий визит не откладывался."]},
+edu:{tk:["new", "new", "ret"],pl:["ret", "noshow", "chk", "new", "idle", "slow"],n:"Школа, курсы, репетитор",c:40,a:6000,d:["new","ret","noshow","slow"],t:["Предложите пробное занятие и сразу — пакет занятий.","Просите отзыв и рекомендацию после первых заметных результатов ученика.","Напоминайте о продлении за несколько дней до конца оплаченного пакета."]},
+store:{tk:["ret", "chk", "ret"],pl:["ret", "chk", "new", "slow", "disc", "idle"],n:"Офлайн-магазин",c:1500,a:900,d:["ret","chk","new","disc"],t:["Предложите карту лояльности с понятным бонусом за повторную покупку.","Выставляйте сопутствующие товары рядом с кассой и на видных местах.","С согласия клиентов собирайте контакты и раз в 2 недели сообщайте о новинках."]},
+clean:{tk:["ret", "new", "noshow"],pl:["ret", "noshow", "chk", "new", "idle", "slow"],n:"Клининг и бытовые услуги",c:60,a:5000,d:["ret","noshow","new","slow"],t:["Предлагайте регулярную уборку по графику вместо разовых заказов.","После заказа просите отзыв и фото результата (с согласия клиента).","Согласуйте время визита заранее и напомните о нём накануне."]},
+other:{tk:["", "ret", "chk"],pl:["ret", "noshow", "chk", "new", "idle", "slow", "disc"],n:"Другой бизнес",c:100,a:3000,d:["ret","chk","new","slow"],t:["Выберите 1–2 проблемы ниже и проверьте их на реальных цифрах за 1–3 месяца.","Ведите список клиентов с датой последней покупки и раз в неделю пишите тем, кто давно не возвращался.","Опишите 2–3 набора товаров или услуг (базовый, оптимальный, расширенный) и предлагайте их по порядку."]}
+};
+
+let D,st=0,DM=0;
+const fresh=()=>({type:"",c:"",a:"",vc:"",fx:"",cur:"₽",pr:[],ch:[],sh:{},ed:0}),today=()=>new Date().toLocaleDateString("ru-RU"),
+E=(v,n,lo,hi,int)=>v===""||v==null?n+": введите число":!isFinite(+v)?n+": нужно число":+v<lo?n+": не меньше "+fm(lo):+v>hi?n+": не больше "+fm(hi):int&&!Number.isInteger(+v)?n+": нужно целое число":"",
+sg0=(x,c)=>(x<0?"−":"")+fm(Math.abs(x))+"\u00A0"+c;
+/*MODEL*/
+function model(i,L){const nz=x=>x===""||x==null,c=+i.c,a=+i.a,vc=nz(i.vc)?null:+i.vc,fx=nz(i.fx)?null:+i.fx,cost=nz(i.cost)?0:+i.cost,mgA=nz(i.mg)?30:+i.mg,rc=(i.rc||[15,30,50]).map(Number),pr=i.pr||[];
+if(!(Number.isInteger(c)&&c>=1&&c<=1e7&&a>=1&&a<=1e8&&(vc==null||vc>=0&&vc<a)&&(fx==null||fx>=0&&fx<=1e10)&&mgA>=0&&mgA<=100&&cost>=0&&cost<=1e9&&rc.length==3&&rc.every(x=>x>=0&&x<=100)&&rc[0]<=rc[1]&&rc[1]<=rc[2]))return{ok:0};
+const mg=vc==null?mgA:(a-vc)/a*100,R=c*a,VC=vc==null?null:c*vc,GP=VC==null?null:R-VC,OP=GP==null||fx==null?null:GP-fx,
+rows=L.filter(l=>pr.includes(l.k)).map(l=>{const s=i.sh&&i.sh[l.k]!=null?+i.sh[l.k]:l.s;return{l,s,v:R*s/100}});
+if(rows.some(r=>!(r.s>=0&&r.s<=50)))return{ok:0};
+const u=1-rows.reduce((p,r)=>p*(1-r.s/100),1),pool=R*u,pf=f=>R*(1-rows.reduce((p,r)=>p*(1-Math.min(50,r.s*f)/100),1))*rc[1]/100;
+return{ok:1,R,VC,GP,OP,fx,mg,mgFact:vc!=null,cost,rows,u,pool,be:mg>0?cost/(mg/100):null,sum:rows.reduce((t,r)=>t+r.v,0),
+sens:[.5,1,1.5].map(f=>{const rev=pf(f);return{f,rev,op:rev*mg/100-cost}}),
+sc:rc.map(r=>{const rev=pool*r/100,gp=rev*mg/100;return{r,rev,gp,op:gp-cost}})}}
+/*END*/
+function go(v){V.forEach(x=>$("#v-"+x).hidden=x!=v);scrollTo(0,0);const h=$("#v-"+v+" h1");if(v!="home"&&h){h.tabIndex=-1;h.focus({preventScroll:true})}}
+function goTo(id){go("home");const e=$("#"+id);if(e)e.scrollIntoView()}
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,3200)}
+function load(){try{const o=JSON.parse(localStorage.getItem(KEY)),d=o.d,n=x=>x===""||x==null?"":+x,ks=L.map(l=>l.k);if(!TY[d.type])return;
+const e={type:d.type,c:n(d.c),a:n(d.a),vc:n(d.vc),fx:n(d.fx),cur:CUR.includes(d.cur)?d.cur:"₽",pr:(d.pr||[]).filter(k=>ks.includes(k)),ch:(d.ch||[]).filter(k=>CH.some(c=>c[0]==k)),sh:{},ed:1};
+ks.forEach(k=>{if(d.sh&&d.sh[k]!=null)e.sh[k]=+d.sh[k]});if(Array.isArray(d.rc))e.rc=d.rc.map(Number);if(d.mg!=null)e.mg=+d.mg;if(d.cost!=null)e.cost=+d.cost;
+if(e.pr.length&&model(e,L).ok)return{t:+o.t||Date.now(),d:e}}catch(x){}}
+function persist(){if(DM||D.nosave)return;try{const{type,c,a,vc,fx,cur,pr,ch,sh,rc,mg,cost}=D;localStorage.setItem(KEY,JSON.stringify({t:Date.now(),d:{type,c,a,vc,fx,cur,pr,ch,sh,rc,mg,cost}}))}catch(e){}}
+function wipe(){try{localStorage.removeItem(KEY)}catch(e){}if(D&&!$("#v-rep").hidden)D.nosave=1;rsb();const s=$("#sv");if(s&&!DM)s.textContent="Сохранённые данные удалены. Этот расчёт больше не сохраняется.";toast("Сохранённые данные удалены")}
+function rsb(){const o=load(),e=$("#rs");e.hidden=!o;if(o)e.innerHTML=`Последний расчёт (${new Date(o.t).toLocaleDateString("ru-RU")}) сохранён в этом браузере, не на сервере. <button type="button" class="lk" onclick="resume()">Открыть</button> · <button type="button" class="lk" onclick="wipe()">Удалить</button>`}
+function resume(){const o=load();if(o){DM=0;D=o.d;rep()}}
+function start(k){DM=0;D=fresh();st=0;if(k)pick(k);else{go("quiz");quiz()}}
+function pick(k){const t=TY[k];D.type=k;if(!D.ed){D.c=t.c;D.a=t.a}D.pr=D.pr.filter(x=>t.pl.includes(x));st=1;go("quiz");quiz()}
+function edit(){DM=0;st=1;go("quiz");quiz()}
+const op=(f,k,t,h)=>`<button type="button" class="op" aria-pressed="${D[f].includes(k)}" onclick="tg('${f}','${k}',this)"><i></i><span><b>${t}</b>${h?`<small>${h}</small>`:""}</span></button>`;
+function tg(f,k,e){const a=D[f],i=a.indexOf(k);i<0?a.push(k):a.splice(i,1);e.setAttribute("aria-pressed",i<0);const r=$("#e5");if(r&&a.length)r.textContent=""}
+function rdq(){if(st==1&&$("#c")){D.c=$("#c").value;D.a=$("#a").value;D.vc=$("#vc").value;D.fx=$("#fx").value;D.cur=$("#cu").value}}
+function goStep(i){rdq();if(i<=st){st=i;quiz()}}
+function hints(){const g=i=>$("#"+i).value,c=+g("c"),a=+g("a"),k=g("vc")!=="",f=g("fx")!=="",n=2+(k?1:0)+(f?1:0),cur=$("#cu").value,m=x=>fm(x)+"\u00A0"+cur,
+R=c>=1&&a>=1?c*a:null,vc=+g("vc"),mg=k&&a>0&&vc>=0&&vc<a?(a-vc)/a*100:null,OP=R!=null&&mg!=null&&f&&+g("fx")>=0?R-c*vc-+g("fx"):null;
+$("#acc").innerHTML=`<h3>Что получится из ваших цифр</h3><div class="mt">${[1,2,3,4].map(i=>`<i${i<=n?' class="on"':""}></i>`).join("")}</div><p><b>Данных от вас: ${n} из 4.</b></p><dl class="lv"><dt>Выручка в месяц</dt><dd class="n">${R==null?"—":m(R)}</dd><dt>Маржа на клиента</dt><dd class="n">${mg==null?"допущение 30%":pc(mg)+"%"}</dd><dt>Операционная прибыль</dt><dd class="n">${OP==null?"не считается":(OP<0?"−":"")+m(Math.abs(OP))}</dd></dl><p class="mu">${k?"Маржа считается из ваших расходов на клиента.":"Без расходов на клиента маржа — допущение (30%), точность ниже."} ${k&&f?"":"Операционная прибыль считается только при обоих необязательных полях."} Доли проблем в любом случае остаются гипотезами.</p>`}
+function quiz(){const t=TY[D.type]||{};let h=`<ol class="stp">${STEPS.map((n,i)=>`<li><button type="button"${i==st?' aria-current="step"':""}${i>st?" disabled":""} onclick="goStep(${i})"><b>${i+1}</b><span>${n}</span></button></li>`).join("")}</ol>`;
+if(st==0)h+=`<div class="qf"><h1>Какой у вас бизнес?</h1><p class="mu">Выберите ближайший вариант: от него зависят вопросы и рекомендации. Подставляемые цифры — только примеры.</p><div class="ls">`+Object.entries(TY).map(([k,v])=>`<button type="button" class="op" aria-pressed="${D.type==k}" onclick="pick('${k}')"><i></i><span><b>${v.n}</b><small>пример: ${fm(v.c)} клиентов в месяц, чек ${fm(v.a)}</small></span></button>`).join("")+"</div></div>";
+if(st==1)h+=`<div class="qg"><div class="qf"><h1>Цифры вашего бизнеса</h1><p class="mu">Достаточно приблизительных значений за обычный месяц. Необязательные поля можно оставить пустыми: тогда часть расчёта станет допущением.</p>
+<label for="c">Клиентов (или заказов) в месяц</label><input id="c" type="number" min="1" max="10000000" step="1" inputmode="numeric" value="${D.c}" oninput="D.ed=1;hints()" aria-describedby="e1"><p class="ht">Среднее за последние 3 месяца. Для магазина — число заказов.</p><p class="er" id="e1" role="alert"></p>
+<label for="a">Средний чек</label><input id="a" type="number" min="1" max="100000000" step="any" inputmode="decimal" value="${D.a}" oninput="D.ed=1;hints()" aria-describedby="e2"><p class="ht">Выручка за месяц, делённая на число клиентов.</p><p class="er" id="e2" role="alert"></p>
+<label for="cu">Валюта</label><select id="cu" onchange="hints()">${CUR.map(x=>`<option${x==D.cur?" selected":""}>${x}</option>`).join("")}</select>
+<label for="vc">Расходы на одного клиента <span class="tg">необязательно</span></label><input id="vc" type="number" min="0" step="any" inputmode="decimal" value="${D.vc}" oninput="hints()" aria-describedby="e3"><p class="ht">Материалы, себестоимость товара, комиссии — всё, что тратится на каждого клиента. Не знаете — оставьте пустым.</p><p class="er" id="e3" role="alert"></p>
+<label for="fx">Постоянные расходы в месяц <span class="tg">необязательно</span></label><input id="fx" type="number" min="0" step="any" inputmode="decimal" value="${D.fx}" oninput="hints()" aria-describedby="e4"><p class="ht">Аренда, зарплаты, реклама, налоги. Не знаете — оставьте пустым.</p><p class="er" id="e4" role="alert"></p></div><aside id="acc" class="acc" aria-live="polite"></aside></div>`;
+if(st==2)h+=`<div class="qf"><h1>Что из этого похоже на ваш бизнес?</h1><p class="mu">Выберите всё, что подходит. Не уверены — отметьте 1–3 самых вероятных: отчёт покажет, как это проверить.</p><div class="ls">`+t.pl.map(k=>{const l=L.find(x=>x.k==k);return op("pr",k,l.t,l.ck)}).join("")+`</div><p class="er" id="e5" role="alert"></p></div>`;
+if(st==3)h+=`<div class="qf"><h1>Как вы привлекаете клиентов сейчас?</h1><p class="mu">Необязательно: можно ничего не выбирать, но тогда советы по каналам будут общими.</p><div class="ls">`+CH.map(c=>op("ch",c[0],c[1])).join("")+"</div></div>";
+if(st>0)h+=`<div class="row qf"><button type="button" class="bt s" onclick="nav(-1)">Назад</button><button type="button" class="bt" onclick="nav(1)">${st==3?"Показать отчёт":"Далее"}</button></div>`;
+$("#q").innerHTML=h;if(st==1)hints();const hh=$("#q h1");if(hh){hh.tabIndex=-1;hh.focus({preventScroll:true})}}
+function nav(d){rdq();if(d>0){if(st==1){const e=[E(D.c,"Клиентов в месяц",1,1e7,1),E(D.a,"Средний чек",1,1e8),D.vc!==""?E(D.vc,"Расходы на клиента",0,1e8):"",D.fx!==""?E(D.fx,"Постоянные расходы",0,1e10):""];
+if(!e[2]&&D.vc!==""&&!e[1]&&+D.vc>=+D.a)e[2]="Расходы на клиента: должны быть меньше среднего чека";
+e.forEach((x,i)=>$("#e"+(i+1)).textContent=x);if(e.some(Boolean))return;D.c=+D.c;D.a=+D.a}
+if(st==2){const e=$("#e5");e.textContent=D.pr.length?"":"Выберите хотя бы одну проблему: без этого нечего оценивать.";if(!D.pr.length)return}
+if(st==3){DM=0;return rep()}}
+st=Math.max(0,Math.min(3,st+d));quiz()}
+function demo(k){k=k||"salon";const t=TY[k];D={type:k,c:t.c,a:t.a,vc:Math.round(t.a*.4),fx:Math.round(t.c*t.a*.35),cur:"₽",pr:t.d,ch:["soc","ref"],sh:{},ed:1};DM=1;rep()}
+function rep(){build();upd();go("rep");const r=$("#r");r.classList.add("first");setTimeout(()=>r.classList.remove("first"),900)}
+function plTable(M){const c=D.cur,m=x=>fm(x)+"\u00A0"+c,sk='<span class="tg">пропущено</span>',F='<span class="tg f">ввод</span>',C='<span class="tg">расчёт</span>',r=(a,v,p)=>`<tr><td>${a}<td class="n">${v}<td>${p}</tr>`;
+return`<div class="tw"><table class="tb"><tr><th>Показатель<th class="n">В месяц<th>Тип</tr>`+r("Клиентов (заказов)",fm(D.c),F)+r("Средний чек",m(D.a),F)+r("Выручка (клиенты × чек)",m(M.R),C)+r("Переменные расходы (клиенты × расходы на клиента)",M.VC==null?"—":m(M.VC),M.VC==null?sk:C)+r("Валовая прибыль (выручка − переменные расходы)",M.GP==null?"—":m(M.GP),M.GP==null?sk:C)+r("Постоянные расходы",M.fx==null?"—":m(M.fx),M.fx==null?sk:F)+r("Операционная прибыль (валовая − постоянные)",M.OP==null?"—":sg0(M.OP,c),M.OP==null?sk:C)+`</table></div><p class="mu">${M.OP==null?"Прочерки — данные, которые вы пропустили: без них прибыль не рассчитывается, а маржа дополнительной выручки берётся из допущения.":"Расчёт по вашим данным; постоянные расходы считаем неизменными при росте выручки."}</p>`}
+function build(){const t=TY[D.type],c=D.cur,M0=model(D,L),rows=L.filter(l=>D.pr.includes(l.k)),
+f=(id,l,v,mx,h)=>`<label for="${id}">${l}</label><input id="${id}" type="number" min="0" max="${mx}" step="any" inputmode="decimal" value="${v}" oninput="upd()">${h?`<p class="ht">${h}</p>`:""}`,
+H=(id,x)=>`<h2 id="h-${id}">${x}</h2>`,toc=[["sm","Резюме"],["sc","Сценарии"],["bk","Окупаемость"],["ot","Откуда цифры"],["pr","Приоритеты"],["dt","Разбор"],["pn","План"],["vf","Проверка"]];
+$("#r").innerHTML=`<div class="rl"><div>`+(DM?`<div class="note"><b>Демонстрационный пример.</b> Цифры вымышленные.<label for="dm">Пример для типа бизнеса</label><select id="dm" onchange="demo(this.value)">${Object.entries(TY).map(([k,v])=>`<option value="${k}"${k==D.type?" selected":""}>${v.n}</option>`).join("")}</select><div class="row"><button type="button" class="bt" onclick="start()">Начать свой расчёт</button></div></div>`:"")
++`<h1>Отчёт: ${t.n}</h1><p class="meta"><span>${fm(D.c)} клиентов в месяц</span><span>чек ${fm(D.a)}\u00A0${c}</span><span>сформирован ${today()}</span></p><p class="mu">Оценка по вашим данным и допущениям модели: не измеренные потери и не гарантия результата.</p><div id="er" class="er" role="alert"></div>
+${H("sm","Резюме")}<div class="sh" id="sm"></div><div class="kp" id="kp"></div>
+${H("sc","Сценарии")}<div class="sh" id="sc"></div>
+${H("bk","Расходы и окупаемость")}<div class="sh" id="bk"></div>${H("sn","Чувствительность к допущениям")}<div class="sh" id="sn"></div>
+${H("ot","Откуда цифры")}<p class="mu"><span class="tg f">ввод</span> вы указали сами · <span class="tg">расчёт</span> посчитано из ввода · <span class="tg a">допущение</span> гипотеза модели, её можно изменить</p><div class="sh">${plTable(M0)}</div>
+<div class="sh"><h3>Допущения: можно менять</h3><p class="ht">Доля выручки, которую может терять каждая зона. Это гипотезы, а не статистика.</p>${rows.map(l=>`<div class="tr"><label for="s-${l.k}">${l.t}, %</label><input id="s-${l.k}" type="number" min="0" max="50" step="any" inputmode="decimal" value="${D.sh[l.k]??l.s}" oninput="upd()"><span class="n" id="a-${l.k}"></span></div>`).join("")}<p id="pl"></p>
+<p class="ht">Какая часть пула вернётся, %: консервативный, базовый, оптимистичный.</p><div class="g3">${SN.map((n,i)=>`<div>${f("r"+i,n,(D.rc||[15,30,50])[i],100)}</div>`).join("")}</div>
+${M0.mgFact?`<p>Маржа дополнительной выручки: <b>${pc(M0.mg)}%</b> <span class="tg">расчёт</span> из ваших расходов на клиента.</p>`:f("mg",'Маржа дополнительной выручки, % <span class="tg a">допущение</span>',D.mg==null?30:D.mg,100,"Какая часть дополнительной выручки остаётся прибылью после расходов на клиента. Укажите расходы на клиента в ответах — допущение заменится вашим числом.")}
+${f("cs",'Расходы на внедрение в месяц, '+c+' <span class="tg f">ввод</span>',D.cost||0,1e9,"Реклама, подарки, скидки, время сотрудников. По умолчанию 0.")}</div>
+${H("pr","Приоритеты")}<div class="sh" id="srcs"></div>${H("dt","Разбор по зонам")}<div id="dt"></div>${H("pn","План на 4 недели")}<div class="sh" id="pn"></div>${H("vf","Что проверить")}<div class="sh" id="vf"></div>
+${H("lim","Ограничения расчёта")}<div class="sh"><p>• Доли проблем — гипотезы: точных отраслевых коэффициентов у сервиса нет.</p><p>• Формула пересечения упрощена и не отражает реальные потери точно.</p><p>• Не учтены сезонность, ёмкость рынка, загрузка мощностей и налоги.</p><p>• Результат предварительный: проверьте идею на небольшом тесте 2–4 недели.</p></div>
+<div class="row"><button type="button" class="bt" onclick="cp()">Скопировать</button><button type="button" class="bt s" onclick="dlh()">Скачать отчёт (.html)</button><button type="button" class="bt s" onclick="dlc()">Таблица (.csv)</button><button type="button" class="bt s" onclick="pr()">Печать / PDF</button></div>
+<div class="row">${DM?"":'<button type="button" class="bt s" onclick="edit()">Изменить ответы</button>'}<button type="button" class="bt s" onclick="start()">Начать заново</button></div><p class="mu" id="sv"></p></div><nav class="toc" aria-label="Содержание отчёта">${toc.map(([k,l])=>`<a href="#h-${k}">${l}</a>`).join("")}</nav></div>`}
+function upd(){const v=i=>$("#"+i).value,er=[],sh={};
+L.forEach(l=>{if(D.pr.includes(l.k)){const e=E(v("s-"+l.k),"Доля «"+l.t+"»",0,50);e?er.push(e):sh[l.k]=+v("s-"+l.k)}});
+const rc=SN.map((n,i)=>{const e=E(v("r"+i),"Возврат («"+n+"»)",0,100);e&&er.push(e);return +v("r"+i)});
+if(!er.length&&!(rc[0]<=rc[1]&&rc[1]<=rc[2]))er.push("Проценты возврата должны идти по возрастанию: консервативный ≤ базовый ≤ оптимистичный");
+const mg=$("#mg");if(mg){const e=E(mg.value,"Маржа",0,100);e&&er.push(e)}
+{const e=E(v("cs"),"Расходы на внедрение",0,1e9);e&&er.push(e)}
+$("#er").innerHTML=er.map(x=>"<p>"+x+"</p>").join("");D.bad=er.length>0;
+if(D.bad){["kp","sc","bk","sn","srcs","dt","pn","vf","pl"].forEach(i=>$("#"+i).innerHTML="");document.querySelectorAll('[id^="a-"]').forEach(e=>e.textContent="—");$("#sm").innerHTML='<p class="mu">Исправьте выделенные значения — расчёт временно недоступен.</p>';return}
+D.sh=sh;D.rc=rc;if(mg)D.mg=+mg.value;D.cost=+v("cs");out();persist()}
+function out(){const M=model(D,L);if(!M.ok){D.bad=1;$("#sm").innerHTML="<p>Проверьте исходные данные: расчёт невозможен.</p>";return}
+const P=parts(M);for(const k in P)$("#"+k).innerHTML=P[k];M.rows.forEach(r=>$("#a-"+r.l.k).textContent=fm(r.v)+"\u00A0"+D.cur);
+$("#sv").innerHTML=DM?"Пример не сохраняется.":D.nosave?"Сохранение выключено: данные не записываются.":'Расчёт сохранён только в этом браузере, не на сервере. <button type="button" class="lk" onclick="wipe()">Удалить сохранённые данные</button>'}
+function parts(M,pt){const c=D.cur,m=x=>fm(x)+"\u00A0"+c,sg=x=>(x<0?"−":"+")+m(Math.abs(x)),t=TY[D.type],top=[...M.rows].sort((x,y)=>y.v-x.v),b=M.sc[1],
+ef=r=>M.sum?r.v/M.sum*b.rev:0,q=r=>r.l.q.split(" · ").map(x=>x.split(": ")[1]),lv=r=>(q(r)[0]=="низкие"?0:1)+(q(r)[1]=="низкая"?0:1),
+seq=[...top].sort((x,y)=>lv(x)-lv(y)||y.v-x.v),gaps=["soc","ref","map","msg"].filter(k=>!D.ch.includes(k)),
+mx=Math.max(...M.sc.map(s=>Math.max(s.rev,s.gp,Math.abs(s.op))),1),
+bar=(l,v,m2,cl,f)=>`<div class="br"><span>${l}</span> <div class="tk"><i class="${v<0?"ng":cl||""}" style="width:${Math.min(100,Math.abs(v)/m2*100)}%"></i></div> <b class="n">${(f||sg)(v)}</b></div>`,
+sm=`<p>${t.n}: по вашим данным выручка ≈ <b>${m(M.R)}</b> в месяц (${fm(D.c)} × ${m(D.a)}). ${M.OP==null?"Прибыль не рассчитана: не указаны расходы.":`Операционная прибыль ≈ <b>${sg0(M.OP,c)}</b> (${pc(M.OP/M.R*100)}% выручки).`}</p><p>По выбранным проблемам (${M.rows.length}) модель оценивает пул упущенной выручки в <b>${m(M.pool)}</b> в месяц — это гипотеза, а не измеренная потеря. В базовом сценарии (возврат ${b.r}%) это ≈ <b>${m(b.rev)}</b> дополнительной выручки и ≈ <b>${sg(b.op)}</b> операционной прибыли.</p><p>Начните с проверки зоны «${top[0].l.t}»: ${top[0].l.ck}</p>`,
+kp=[["Выручка в месяц",m(M.R),""],["Пул упущенной выручки",m(M.pool),"a"],["Доп. выручка, базовый",sg(b.rev),"a"],["Доп. операц. прибыль, базовый",sg(b.op),"a"]].map(([l,v,k])=>`<div><span class="mu">${l}</span> <b class="fin n">${v}</b> <span class="tg ${k}">${k?"оценка":"расчёт"}</span></div>`).join(""),
+sc=M.sc.map((s,i)=>`<div class="scr"><div class="sp"><b>${SN[i]}</b><span class="mu">вернётся ${s.r}% пула</span></div>${bar("Доп. выручка",s.rev,mx)}${bar("Валовая прибыль",s.gp,mx)}${bar("Операц. прибыль",s.op,mx,"ac")}</div>`).join("")+`<p class="mu">Операционная прибыль = валовая прибыль − расходы на внедрение (${m(M.cost)} в месяц); постоянные расходы считаем неизменными — это допущение.</p>`,
+pl=`<span class="tg a">допущение</span> Проблемы пересекаются, поэтому доли не складываются: пул = выручка × (1 − (1 − д1) × (1 − д2) × …) = ${(M.u*100).toFixed(1)}% выручки = <b>${m(M.pool)}</b> (простая сумма ${m(M.sum)} дала бы двойной учёт). Формула считает проблемы независимыми и лишь приближённо отражает реальность.`,
+srcs=top.map((r,i)=>`<div class="pz"><div class="sp"><b>${i+1}. ${r.l.t}</b><b class="n">${m(ef(r))}</b></div><div class="tk"><i style="width:${Math.max(r.v/Math.max(top[0].v,1)*100,2)}%"></i></div><p class="mu">Эффект в месяц в базовом сценарии. Оценка зоны: ${m(r.v)} выручки, доля ${r.s}%. Затраты: ${q(r)[0]} · сложность: ${q(r)[1]} · проверка: ${q(r)[2]} · порядок запуска: ${seq.indexOf(r)+1}-й.</p></div>`).join("")+`<p class="mu">Порядок — по эффекту в базовом сценарии: доля зоны в сумме × базовая доп. выручка. Порядок запуска — сначала дешёвое и простое. Затраты, сложность и срок проверки — ориентировочные оценки автора сервиса, не измерения.</p>`,
+bk=`<p>Расходы на внедрение: <b>${m(M.cost)}</b> в месяц <span class="tg f">ввод</span>. Маржа дополнительной выручки: <b>${pc(M.mg)}%</b> <span class="tg${M.mgFact?"":" a"}">${M.mgFact?"расчёт":"допущение"}</span>.</p><p>${M.be==null?"При марже 0% дополнительная выручка не даёт прибыли.":M.cost==0?"Расходы не указаны, поэтому окупаемость не считается. Если идеи потребуют затрат, внесите их в допущениях.":b.rev>0?`Чтобы расходы окупились, нужна доп. выручка не меньше <b>${m(M.be)}</b> в месяц — это ${pc(M.be/b.rev*100)}% от базового сценария (${m(b.rev)}).`:"Базовая доп. выручка равна нулю: расходы не окупятся."}</p>`,
+sn=`<p class="mu">Базовый сценарий, если реальные доли проблем окажутся другими, чем в допущениях.</p><div class="tw"><table class="tb"><tr><th>Доли проблем<th class="n">Доп. выручка<th class="n">После расходов</tr>${M.sens.map(s=>`<tr><td>${s.f==1?"как заданы":s.f<1?"в 2 раза меньше":"в 1,5 раза больше"}<td class="n">${sg(s.rev)}<td class="n">${sg(s.op)}</tr>`).join("")}</table></div>`,
+gen=t.t.filter((x,i)=>!M.rows.some(r=>r.l.k==t.tk[i])),H=pt?"div":"details",S=pt?"h3":"summary",
+dt=top.map((r,i)=>{const id=t.t.filter((x,j)=>t.tk[j]==r.l.k),ch=r.l.k=="new"?gaps.map(k=>CI[k]):[];
+return`<${H} class="dz"${!pt&&i==0?" open":""}><${S}>${i+1}. ${r.l.t} — ≈ ${m(ef(r))} в месяц</${S}><p><span class="tg a">гипотеза</span> ${r.l.w}</p><p><b>Как проверить по своим данным.</b> ${r.l.ck}</p><p><b>Что делать.</b> ${r.l.tip} ${r.l.x}</p>${id.length||ch.length?`<p><b>Для вашего типа бизнеса${ch.length?" и ваших каналов":""}.</b> ${[...id,...ch].join(" ")}</p>`:""}<p><b>Что измерять.</b> ${r.l.kp}</p><p><b>Шаблон сообщения.</b> ${r.l.m}</p></${H}>`}).join("")+(gen.length?`<p class="mu"><b>Другие идеи для вашего типа бизнеса.</b> ${gen.join(" ")}</p>`:""),
+s3=seq.slice(0,3),wk=[["Неделя 1. Измерить и подготовиться",["Соберите цифры за 1–3 месяца: клиенты, средний чек, выручка"+(M.mgFact?"":", расходы на клиента (заменят допущение о марже)")+".",...s3.map(r=>`Проверка «${r.l.t}»: ${r.l.ck}`),"Подготовьте шаблоны сообщений из разбора и таблицу для записи результатов."]],
+["Неделя 2. Запустить первую идею",[`${seq[0].l.t}: ${seq[0].l.x}`,`Записывайте: ${seq[0].l.kp}`]],
+["Неделя 3. Добавить следующие идеи",seq.length>1?s3.slice(1).flatMap(r=>[`${r.l.t}: ${r.l.x}`,`Записывайте: ${r.l.kp}`]):["Продолжайте первую идею и сравнивайте цифры с неделей 1."]],
+["Неделя 4. Оценить и решить",["Сравните показатели с цифрами недели 1 по каждой идее.","Оставьте то, что сработало; остановите то, что не дало эффекта или не окупилось (доп. выручка × маржа меньше расходов).","Вернитесь в калькулятор и замените допущения измеренными значениями."]]],
+pn=wk.map(([h,a])=>`<div class="wk"><h3>${h}</h3>${a.map(x=>`<p>☐ ${x}</p>`).join("")}</div>`).join(""),
+vf=`<p class="mu">Чтобы превратить гипотезы в факты, проверьте по своим данным:</p>`+top.slice(0,3).map(r=>`<p>• ${r.l.ck}</p>`).join("")+(M.mgFact?"":"<p>• Реальные расходы на одного клиента: заменят допущение о марже.</p>")+(M.fx==null?"<p>• Постоянные расходы в месяц: нужны для расчёта операционной прибыли.</p>":"")+"<p>• Результаты 2–4 недель теста по каждой идее: сравните их с цифрами до начала.</p>";
+return{sm,kp,sc,pl,bk,sn,srcs,dt,pn,vf}}
+function pbody(){const M=model(D,L),P=parts(M,1),m=x=>fm(x)+"\u00A0"+D.cur;
+return`<h1>MissedMoney — отчёт: ${TY[D.type].n}${DM?" (демо)":""}</h1><p class="mu">Сформирован: ${today()}${DM?". Цифры вымышленные.":""} Оценка по данным и допущениям модели: не измеренные потери и не гарантия результата.</p>
+<h2>Резюме</h2>${P.sm}<div class="kp">${P.kp}</div><h2>Сценарии (в месяц)</h2>${P.sc}<h2>Расходы и окупаемость</h2>${P.bk}<h2>Чувствительность к допущениям</h2>${P.sn}<h2>Ваши данные и расчёт</h2>${plTable(M)}
+<h2>Допущения</h2><p>Доли проблем (% выручки): ${M.rows.map(r=>r.l.t+" — "+r.s+"%").join("; ")}. Возврат: ${M.sc.map((s,i)=>SN[i]+" "+s.r+"%").join(", ")}. Маржа: ${M.mg.toFixed(0)}% (${M.mgFact?"из ваших расходов на клиента":"допущение"}). Расходы на внедрение: ${m(M.cost)} в месяц.</p><p>${P.pl}</p>
+<h2>Приоритеты</h2>${P.srcs}<h2>Разбор по зонам</h2>${P.dt}<h2>План на 4 недели</h2>${P.pn}<h2>Что проверить</h2>${P.vf}
+<h2>Ограничения расчёта</h2><p>Доли проблем — гипотезы, а не отраслевая статистика. Формула пересечения — упрощение и не отражает реальные потери точно. Не учтены сезонность, ёмкость рынка, загрузка мощностей и налоги. Это сценарная оценка, а не факт о потерях бизнеса и не гарантия роста дохода.</p>`}
+const h2t=h=>h.replace(/<\/span> <div class="tk">/g,": ").replace(/<i [^>]*><\/i><\/div> <b class="n">/g," ").replace(/<h[12]>/g,"\n").replace(/<t[dh][^>]*>/g," | ").replace(/<(br|\/p|\/h\d|\/tr|\/div|\/summary)>/g,"\n").replace(/<[^>]+>/g,"").replace(/\n[ \n]*\n/g,"\n\n").trim()+"\n";
+function txt(){if(D.bad)return"";const M=model(D,L);return M.ok?h2t(pbody()):""}
+const nm=x=>typeof x=="number"?String(x).replace(".",","):x;
+function csv(){const M=model(D,L),R=Math.round,r=[["Раздел","Показатель","Значение","Тип"],["Данные","Тип бизнеса",TY[D.type].n,"ввод"],["Данные","Клиентов в месяц",+D.c,"ввод"],["Данные","Средний чек, "+D.cur,+D.a,"ввод"],["Данные","Расходы на клиента, "+D.cur,D.vc===""?"не указано":+D.vc,"ввод"],["Данные","Постоянные расходы в месяц, "+D.cur,D.fx===""?"не указано":+D.fx,"ввод"],
+["Расчёт","Выручка в месяц",R(M.R),"расчёт"],["Расчёт","Валовая прибыль в месяц",M.GP==null?"не рассчитано":R(M.GP),"расчёт"],["Расчёт","Операционная прибыль в месяц",M.OP==null?"не рассчитано":R(M.OP),"расчёт"],
+["Допущение","Маржа дополнительной выручки, %",+M.mg.toFixed(1),M.mgFact?"расчёт":"допущение"],["Допущение","Расходы на внедрение в месяц",M.cost,"ввод"],["Расчёт","Пул упущенной выручки в месяц",R(M.pool),"гипотеза"],
+...M.rows.map(x=>["Допущение","Доля зоны: "+x.l.t+", %",x.s,"допущение"]),
+...M.sc.flatMap((s,i)=>[["Сценарий",SN[i]+": доп. выручка",R(s.rev),"оценка"],["Сценарий",SN[i]+": валовая прибыль",R(s.gp),"оценка"],["Сценарий",SN[i]+": операционная прибыль",R(s.op),"оценка"]])];
+return"\ufeff"+r.map(a=>a.map(x=>'"'+String(nm(x)).replace(/"/g,'""')+'"').join(";")).join("\r\n")}
+async function file(name,data,type){try{if(window.mmSave&&await window.mmSave(name,data,type))return toast("Файл сохранён")}catch(e){if(e&&e.code=="declined")return}
+try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;document.body.appendChild(a);a.click();a.remove();toast("Скачивание запущено")}catch(e){toast("Не удалось скачать файл — скопируйте отчёт")}}
+function copyText(t){const f=()=>{const e=document.createElement("textarea");e.value=t;e.setAttribute("readonly","");e.style.cssText="position:fixed;opacity:0";document.body.appendChild(e);e.select();e.setSelectionRange(0,t.length);let ok=0;try{ok=document.execCommand("copy")}catch(_){}e.remove();toast(ok?"Скопировано":"Не удалось скопировать — скачайте отчёт файлом")};
+if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(()=>toast("Скопировано"),f);else f()}
+const bad=()=>(toast("Исправьте значения — отчёт недоступен"),1),
+XCSS='body{font:14px/1.55 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#14213d;background:#fff;max-width:780px;margin:0 auto;padding:16px}h1{font-size:24px;margin:0 0 6px}h2{font-size:17px;margin:22px 0 8px;padding-top:10px;border-top:1px solid #d8d4c8}h3{font-size:15px;margin:10px 0 4px}p{margin:5px 0}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #d8d4c8;padding:6px 4px;text-align:left;vertical-align:top;font-size:13px}.n{text-align:right;white-space:nowrap}.tw{overflow-x:auto}.mu{color:#566178}.tg{border:1px solid #999;padding:0 5px;font-size:11px;white-space:nowrap}.br{display:grid;grid-template-columns:minmax(0,8rem) 1fr auto;gap:8px;align-items:center;margin:3px 0}.tk{height:10px;background:#e7e4da}.tk i{display:block;height:100%;background:#14213d;-webkit-print-color-adjust:exact;print-color-adjust:exact}.tk i.ac{background:#f2b600}.tk i.ng{background:#a4262c}.sp{display:flex;justify-content:space-between}.dz,.wk,.scr{border-top:1px solid #d8d4c8;padding:6px 0}.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}.kp>div>*{display:block}.kp b{font-size:17px}';
+function cp(){if(D.bad)return bad();copyText(txt())}
+function dlh(){if(D.bad)return bad();file("missedmoney-report.html",`<!DOCTYPE html><html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Отчёт MissedMoney</title><style>${XCSS}</style><body>${pbody()}</body>`,"text/html;charset=utf-8")}
+function dlc(){if(D.bad)return bad();file("missedmoney-report.csv",csv(),"text/csv;charset=utf-8")}
+function pr(){if(D.bad)return bad();print()}
+function fbc(){const x=$("#fx2").value;if(!x.trim())return toast("Напишите сообщение");copyText("Имя: "+$("#fn").value+"\nКонтакт: "+$("#fc").value+"\nСообщение: "+x)}
+function preview(){const t=TY.salon,M=model({type:"salon",c:t.c,a:t.a,vc:Math.round(t.a*.4),fx:Math.round(t.c*t.a*.35),pr:t.d,ch:[],sh:{}},L),mx=Math.max(...M.sc.map(s=>s.rev),1);
+$("#pvw").innerHTML=`<p class="mu">Пример результата · цифры вымышленные</p><p>Дополнительная выручка в месяц, три сценария (салон: ${t.c} клиентов, чек ${fm(t.a)}\u00A0₽):</p>`+M.sc.map((s,i)=>`<div class="br"><span>${SN[i]}</span> <div class="tk"><i style="width:${s.rev/mx*100}%"></i></div> <b class="n">+${fm(s.rev)}\u00A0₽</b></div>`).join("")+`<p class="mu">Оценка по допущениям, а не измеренные потери. <button type="button" class="lk" onclick="demo()">Открыть пример отчёта</button></p>`}
+addEventListener("beforeprint",()=>{if(!$("#v-rep").hidden&&!D.bad){$("#pv").innerHTML=pbody();document.body.classList.add("pp")}});
+addEventListener("afterprint",()=>document.body.classList.remove("pp"));
+go("home");preview();rsb();
+</script></body></html>
